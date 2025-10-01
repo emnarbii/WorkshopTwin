@@ -11,10 +11,10 @@ const routes: Routes = [
   {
     path: 'list',
     component: ListEventComponent,
-    children: [
-      { path: 'test1', component: TestComponent },
-      { path: 'test2', component: DataBindingComponent },
-    ],
+    // children: [
+    //   { path: 'test1', component: TestComponent },
+    //   { path: 'test2', component: DataBindingComponent },
+    // ],
   },
   { path: '**', component: NotfoundComponent },
 ];
