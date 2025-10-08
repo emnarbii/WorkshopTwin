@@ -7,10 +7,11 @@
     type="text"
     class="form-control mb-4"
     placeholder="Rechercher un événement"
+    [(ngModel)]="searchItem"
   />
-
+  searchItem{{ searchItem }}
   <div class="row g-3">
-    <div class="col-md-4" *ngFor="let event of eventList">
+    <div class="col-md-4" *ngFor="let event of filter()">
       <div class="card h-100 shadow-sm">
         <img
           src="{{ event.imageUrl }}"
@@ -21,7 +22,7 @@
         <div class="card-body">
           <h5 class="card-title">{{ event.titre | uppercase }}</h5>
           <p class="text-muted">{{ event.lieu }}</p>
-          <p>{{ event.date | date}}</p>
+          <p>{{ event.date | date }}</p>
           <p class="fw-bold"></p>
           <p>{{ event.description }}</p>
           <p>{{ event.prix }}</p>
