@@ -1,19 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './layout/home/home.component';
-import { ListEventComponent } from './layout/list-event/list-event.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+
   {
-    path: 'list',
-    component: ListEventComponent,
-    // children: [
-    //   { path: 'test1', component: TestComponent },
-    //   { path: 'test2', component: DataBindingComponent },
-    // ],
+    path: 'events',
+    loadChildren: () =>
+      import('./features/events/events.module').then((m) => m.EventsModule),
+  },
+  {
+    path: 'tickets',
+    loadChildren: () =>
+      import('./features/tickets/tickets.module').then((m) => m.TicketsModule),
   },
   { path: '**', component: NotfoundComponent },
 ];

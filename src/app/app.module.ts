@@ -8,7 +8,6 @@ import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { DataBindingComponent } from './data-binding/data-binding.component';
 import { FormsModule } from '@angular/forms';
-import { ListEventComponent } from './layout/list-event/list-event.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { TestComponent } from './test/test.component';
 
@@ -19,16 +18,11 @@ import { TestComponent } from './test/test.component';
     HeaderComponent,
     FooterComponent,
     DataBindingComponent,
-    ListEventComponent,
     NotfoundComponent,
-    TestComponent
+    TestComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
