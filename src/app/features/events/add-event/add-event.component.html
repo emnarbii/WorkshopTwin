@@ -1,0 +1,99 @@
+<form [formGroup]="eventForm" (submit)="onSubmit()">
+  <div class="mb-3">
+    <label for="exampleInputTitle1" class="form-label">Title </label>
+    <input
+      type="Title"
+      class="form-control"
+      id="exampleInputTitle1"
+      aria-describedby="TitleHelp"
+      formControlName="title"
+    />
+
+    <div *ngIf="title?.invalid && title?.touched">
+      <span
+        *ngIf="eventForm.get('title')?.hasError('required')"
+        style="color: red"
+        >This field is required</span
+      >
+      <span *ngIf="title?.hasError('minlength')" style="color: red"
+        >This field must contain at least 5 caracters</span
+      >
+      <span *ngIf="title?.errors?.['pattern']" style="color: red"
+        >This field must respect the pattern</span
+      >
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputDescription1" class="form-label">Description</label>
+    <input
+      type="Description"
+      class="form-control"
+      id="exampleInputDescription1"
+      formControlName="description"
+    />
+
+    <div *ngIf="description?.invalid && description?.touched">
+      <span
+        *ngIf="eventForm.get('description')?.hasError('required')"
+        style="color: red"
+        >This field is required</span
+      >
+      <span *ngIf="description?.hasError('minlength')" style="color: red"
+        >This field must contain at least 30 caracters</span
+      >
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleInputDate1" class="form-label">Date</label>
+    <input
+      type="Date"
+      class="form-control"
+      id="exampleInputDate1"
+      formControlName="date"
+    />
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleInputPrix1" class="form-label">Prix</label>
+    <input
+      type="Prix"
+      class="form-control"
+      id="exampleInputPrix1"
+      formControlName="prix"
+    />
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleInputNbPlace1" class="form-label">NbPlace</label>
+    <input
+      type="NbPlace"
+      class="form-control"
+      id="exampleInputNbPlace1"
+      formControlName="nbrPlace"
+    />
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleInputLieu1" class="form-label">Lieu</label>
+    <input
+      type="Lieu"
+      class="form-control"
+      id="exampleInputLieu1"
+      formControlName="lieu"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputImage1" class="form-label">Image</label>
+    <input
+      type="text"
+      class="form-control"
+      id="exampleInputImage1"
+      formControlName="urlImage"
+    />
+  </div>
+
+  <button type="submit" class="btn btn-primary" [disabled]="eventForm.invalid">
+    Submit
+  </button>
+</form>
