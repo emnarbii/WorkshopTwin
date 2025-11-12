@@ -9,10 +9,15 @@ import { DataService } from '../../../shared/services/data.service';
 })
 export class ListEventComponent {
   searchItem: string = ' ';
-
- constructor(private data:DataService){}
+  eventList: Event[] = [];
+  filteredList: Event[] = [];
+  constructor(private data: DataService) {}
   //increment nbLikes
 
+  ngOnInit() {
+    this.eventList = this.data.getEventList();
+    this.filteredList = this.eventList;
+  }
   incLikes(event: Event) {
     return event.nbrLikes++;
   }
@@ -26,10 +31,15 @@ export class ListEventComponent {
   }
 
   filter() {
-    return this.data.getEventList().filter(
-      (eventItem) =>
-        eventItem.titre.toLowerCase().includes(this.searchItem.toLowerCase()) ||
-        eventItem.lieu.toLowerCase().includes(this.searchItem.toLowerCase())
-    );
+    console.log(this.filteredList);
+    return this.filteredList;
+    // .filter(
+    //     (eventItem) =>
+    //       eventItem.titre
+    //         .toLowerCase()
+    //         .includes(this.searchItem.toLowerCase()) ||
+    //       eventItem.lieu.toLowerCase().includes(this.searchItem.toLowerCase())
+    //   );
+   
   }
-}
+  }

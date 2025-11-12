@@ -68,4 +68,8 @@ export class DataService {
     return this.eventList.filter(event=> event.id==id)[0];
   }
 
+  addEvent(event:any){
+    return this.eventList.push(event);
+  }
+
 }
