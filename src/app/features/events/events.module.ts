@@ -9,9 +9,10 @@ import { ListEventComponent } from './list-event/list-event.component';
 import { CardComponent } from './card/card.component';
 import { CapitalizeFirstPipe } from '../../shared/pipes/capitalize-first.pipe';
 import { AddEventComponent } from './add-event/add-event.component';
+import { ParticipationFormComponent } from './participation-form/participation-form.component';
 
 @NgModule({
-  declarations: [EventsComponent,ListEventComponent, EventDetailsComponent, CardComponent,CapitalizeFirstPipe, AddEventComponent],
+  declarations: [EventsComponent,ListEventComponent, EventDetailsComponent, CardComponent,CapitalizeFirstPipe, AddEventComponent, ParticipationFormComponent],
   imports: [CommonModule, EventsRoutingModule, FormsModule,ReactiveFormsModule],
 })
 export class EventsModule {}
